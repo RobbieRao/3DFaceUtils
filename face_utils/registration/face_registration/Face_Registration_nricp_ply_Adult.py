@@ -14,14 +14,18 @@ import pandas as pd
 import menpo3d.io.input.mesh as ia
 import os
 
-from Rec_utils.visualize import plot_mlabvertex,plot_2mlabvertex,plot_mlabfaceerror
-from Rec_utils.plyio import read_ply, save_ply
-from Rec_utils.transform import angle2matrix
-from Rec_utils.mesh import crop_mesh
-from Reg_utils.face_corespond import face_correction,correspond_mesh
-from Rec_utils.landmark import landmark3d_detect
-from Reg_utils.uvmap_processing import Vertices2Mapuv
-from Rec_utils.fitting import fit_shaperror
+from face_utils.reconstruction.visualize import (
+    plot_mlabvertex,
+    plot_2mlabvertex,
+    plot_mlabfaceerror,
+)
+from face_utils.reconstruction.plyio import read_ply, save_ply
+from face_utils.reconstruction.transform import angle2matrix
+from face_utils.reconstruction.mesh import crop_mesh
+from ..face_corespond import face_correction, correspond_mesh
+from face_utils.reconstruction.landmark import landmark3d_detect
+from ..uvmap_processing import Vertices2Mapuv
+from face_utils.reconstruction.fitting import fit_shaperror
 
 plt.rcParams["font.size"]=12
 #===================================================Parameters===================================

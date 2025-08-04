@@ -22,7 +22,7 @@ import numpy as np
 import math
 import matplotlib.pyplot as plt
 
-from Rec_utils.visualize import plot_mlabvertex,plot_matuvmap
+from .visualize import plot_mlabvertex, plot_matuvmap
 
 def pointTriangleDistance(TRI, P):
     '''

@@ -10,10 +10,10 @@ import matplotlib
 
 import cv2  #cv2.__version__
 import numpy as np
+import os
 import matplotlib.pyplot as plt
 from skimage import img_as_float
-import Rec_utils.transform as transform 
-import Rec_utils.render as render
+from . import transform, render
 #import dlib #dlib.__version__  conda install -c conda-forge dlib  
 
 LEFT_EYE_POINTS = list(range(42, 48))
@@ -56,7 +56,12 @@ def landmark2d_detect(img,method='dlib',landmark3d=None,flag_show=True,return_se
         import dlib #dlib.__version__  conda install -c conda-forge dlib  
 
         detector = dlib.get_frontal_face_detector()
-        predictor = dlib.shape_predictor('./Rec_utils/landmark_predictor/shape_predictor_68_face_landmarks.dat')        
+        model_path = os.path.join(
+            os.path.dirname(__file__),
+            "landmark_predictor",
+            "shape_predictor_68_face_landmarks.dat",
+        )
+        predictor = dlib.shape_predictor(model_path)
         #取灰度
         img_gray = cv2.cvtColor(img, cv2.COLOR_RGB2GRAY)
         #人脸数rects
