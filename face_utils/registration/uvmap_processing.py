@@ -9,7 +9,7 @@ import numpy as np
 import math
 import matplotlib.pyplot as plt
 from typing import NamedTuple
-from Rec_utils.visualize import plot_mlabvertex,plot_matuvmap
+from face_utils.reconstruction.visualize import plot_mlabvertex, plot_matuvmap
 
 
 def Vertices2Mapuv(vertices,triangles=None,texture=None,landmark_idx=None,

@@ -7,10 +7,17 @@ Created on Sat Jun  6 23:00:09 2020
 
 import numpy as np
 import pandas as pd
-from Rec_utils.transform import similarity_transform, estimate_affine_matrix_3d22d,P2sRt,angle2matrix, matrix2angle,estimate_affine_matrix_3d23d
-from Rec_utils.light import get_normal,sh9
-from  Rec_utils.render import render_colors_ras,barycentricReconstruction
-from Rec_utils.mesh import generate_texture
+from .transform import (
+    similarity_transform,
+    estimate_affine_matrix_3d22d,
+    P2sRt,
+    angle2matrix,
+    matrix2angle,
+    estimate_affine_matrix_3d23d,
+)
+from .light import get_normal, sh9
+from .render import render_colors_ras, barycentricReconstruction
+from .mesh import generate_texture
 
 import matplotlib.pyplot as plt
 from matplotlib import cm#,colors

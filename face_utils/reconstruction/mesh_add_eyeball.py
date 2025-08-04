@@ -320,10 +320,11 @@ def opt_eye_position(nn_search, eye_contour, ball_vtx, ball_mesh):
 
 def add_eye_ball(head_vtx, L_ball_mesh=None, R_ball_mesh=None):
     if L_ball_mesh is None:
-        L_ball_mesh_path = './Rec_utils/eye_ball_assets/eyeLeft_mesh_move.obj'
-        R_ball_mesh_path = './Rec_utils/eye_ball_assets/eyeRight_mesh_move.obj'
-        ball_tex_path = './Rec_utils/eye_ball_assets/eye_ball_tex.png'
-        ball_mtl_path = './Rec_utils/eye_ball_assets/eye_ball_tex.mtl'
+        asset_dir = os.path.join(os.path.dirname(__file__), "eye_ball_assets")
+        L_ball_mesh_path = os.path.join(asset_dir, "eyeLeft_mesh_move.obj")
+        R_ball_mesh_path = os.path.join(asset_dir, "eyeRight_mesh_move.obj")
+        ball_tex_path = os.path.join(asset_dir, "eye_ball_tex.png")
+        ball_mtl_path = os.path.join(asset_dir, "eye_ball_tex.mtl")
 
         L_ball_mesh = obj_read_quad_tri(L_ball_mesh_path)
         R_ball_mesh = obj_read_quad_tri(R_ball_mesh_path)

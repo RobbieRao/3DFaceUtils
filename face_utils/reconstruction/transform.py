@@ -24,8 +24,8 @@ import numpy as np
 import math
 from math import cos, sin
 import cv2  #cv2.__version__
-from Rec_utils.load import load_BFM
-from Reg_utils.model_transform import BFM20092Models
+from .load import load_BFM
+from ..registration.model_transform import BFM20092Models
 
 def face2head(BFM_vertices,model_head="ASymHead_Chinese_Shape_1862",
               model_face="ASymBFM_Chinese_Shape_1862", 

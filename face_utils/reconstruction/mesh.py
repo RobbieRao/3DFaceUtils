@@ -6,10 +6,10 @@ Created on Sun Jun  7 00:37:40 2020
 """
 
 
-from Rec_utils.light import get_normal,sh9
-from Rec_utils.visualize import plot_mlabfaceerror
-#from Rec_utils.fitting import fit_shaperror
-#from Rec_utils.render import get_point_weight
+from .light import get_normal, sh9
+from .visualize import plot_mlabfaceerror
+#from .fitting import fit_shaperror
+#from .render import get_point_weight
 
 from menpo.shape import TriMesh,PointCloud
 from scipy import sparse#,linalg#,dok_matrix
