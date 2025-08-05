@@ -1,0 +1,16 @@
+baidu-aip
+dlib
+face-alignment
+gradio
+matplotlib
+numpy
+open3d
+opencv-python
+pandas
+pillow
+pyvista
+scikit-image
+scikit-learn
+scipy
+torch
+torchvision
