@@ -1,5 +1,5 @@
 baidu-aip
-dlib
+dlib-bin
 face-alignment
 gradio
 matplotlib
