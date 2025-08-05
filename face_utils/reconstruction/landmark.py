@@ -69,17 +69,21 @@ def landmark2d_detect(img,method='dlib',landmark3d=None,flag_show=True,return_se
         df_pos = np.array([[p.x, p.y] for p in predictor(img,rects[0]).parts()]).reshape(-1,2)
         
     elif method=='face_alignment':
-        import face_alignment #https://github.com/1adrianb/face-alignment
+        import face_alignment  # https://github.com/1adrianb/face-alignment
 
-        fa2d = face_alignment.FaceAlignment(face_alignment.LandmarksType._2D, flip_input=False,device='cpu')
+        # LandmarksType no longer exposes the old `_2D` attribute. Use the
+        # enum name `TWO_D` introduced in newer versions instead to avoid
+        # `AttributeError: type object 'LandmarksType' has no attribute '_2D'`.
+        fa2d = face_alignment.FaceAlignment(
+            face_alignment.LandmarksType.TWO_D, flip_input=False, device="cpu"
+        )
         img1 = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
         df_pos = np.array(fa2d.get_landmarks(img1)).reshape(-1,2)
     
     elif method=='baidu':
-        from aip import AipFace 
-        #pip install baidu-aip
-        #pip uninstall chardet
-        import base64#,json,os
+        from aip import AipFace
+        # pip install baidu-aip chardet
+        import base64  # ,json,os
         from PIL import Image
         from io import BytesIO
         """ 你的 APPID AK SK """

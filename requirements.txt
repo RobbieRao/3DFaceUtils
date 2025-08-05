@@ -1,4 +1,5 @@
 baidu-aip
+chardet
 dlib-bin
 face-alignment
 gradio
