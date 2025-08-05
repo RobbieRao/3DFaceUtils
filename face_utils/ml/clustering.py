@@ -76,7 +76,7 @@ def density_showing(X,percent = 10.,dc=None,flag=False):
     tt=plot_histo(rho)
     plt.title(r"$\rho$ histogram",loc= 'left')
     
-    '''========================================================================================
+    r'''========================================================================================
     1. Determine maximum distance
     2. Sort \rho to find points of highest density
     3. Find nearest neighbors

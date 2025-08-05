@@ -42,7 +42,7 @@ class FCM(BaseModel):
     m: float = Field(2.0, ge=1.0)
     error: float = Field(1e-5, ge=1e-9)
     random_state: Optional[int] = None
-    trained: bool = Field(False, const=True)
+    trained: bool = Field(False)
 
     #@validate_arguments(config=dict(arbitrary_types_allowed=True))
     def fit(self, X: NDArray, X_Weight: NDArray) -> None:
