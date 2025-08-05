@@ -1,0 +1,14 @@
+baidu-aip
+dlib
+face-alignment
+gradio
+matplotlib
+numpy
+opencv-python
+pandas
+pillow
+pydantic
+pyvista
+scikit-image
+scikit-learn
+scipy
