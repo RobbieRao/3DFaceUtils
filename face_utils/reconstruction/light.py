@@ -13,46 +13,45 @@ spherical harmonics in human face: '3D Face Reconstruction from a Single Image U
 #from __future__ import print_function
 
 import numpy as np
+import pyvista as pv
 
 _norm = lambda arr: arr / np.sqrt(np.sum(arr ** 2, axis=1))[:, None]
 
+
 def get_normal(vertices, triangles):
-    ''' calculate normal direction in each vertex
-    Args:
-        vertices: [nver, 3]
-        triangles: [ntri, 3]
-    Returns:
-        normal: [nver, 3]
-    '''
+    """Calculate per-vertex normals for a triangle mesh.
+
+    Uses :mod:`pyvista` for fast normal estimation and falls back to a numpy
+    implementation if pyvista is unavailable.
+    """
+
     try:
-        from menpo.shape import TriMesh
-        mesh=TriMesh(vertices.copy(), triangles.copy())
-        normal=mesh.vertex_normals()
-        
-    except:
-        pt0 = vertices[triangles[:, 0], :] # [ntri, 3]
-        pt1 = vertices[triangles[:, 1], :] # [ntri, 3]
-        pt2 = vertices[triangles[:, 2], :] # [ntri, 3]
-        #tri_normal = np.cross(pt0 - pt1, pt0 - pt2) # [ntri, 3]. normal of each triangle
-        tri_normal = np.cross(pt1 - pt0, pt2 - pt0) # [ntri, 3]. normal of each triangle
-        d = np.sqrt( np.sum(tri_normal *tri_normal, 1))
-        zero_ind = (d == 0)
+        faces = np.hstack([np.full((triangles.shape[0], 1), 3), triangles]).astype(np.int32)
+        mesh = pv.PolyData(vertices, faces)
+        mesh.compute_normals(inplace=True)
+        normal = np.asarray(mesh["Normals"])
+    except Exception:
+        pt0 = vertices[triangles[:, 0], :]
+        pt1 = vertices[triangles[:, 1], :]
+        pt2 = vertices[triangles[:, 2], :]
+        tri_normal = np.cross(pt1 - pt0, pt2 - pt0)
+        d = np.sqrt(np.sum(tri_normal * tri_normal, 1))
+        zero_ind = d == 0
         d[zero_ind] = 1
-        tri_normal=tri_normal/d.reshape(-1,1)
-        
-        normal = np.zeros_like(vertices) # [nver, 3]
+        tri_normal = tri_normal / d.reshape(-1, 1)
+
+        normal = np.zeros_like(vertices)
         for i in range(triangles.shape[0]):
-            normal[triangles[i, 0], :] = normal[triangles[i, 0], :] + tri_normal[i, :]
-            normal[triangles[i, 1], :] = normal[triangles[i, 1], :] + tri_normal[i, :]
-            normal[triangles[i, 2], :] = normal[triangles[i, 2], :] + tri_normal[i, :]
-        
-        # normalize to unit length
-        mag = np.sum(normal**2, 1) # [nver]
-        zero_ind = (mag == 0)
-        mag[zero_ind] = 1;
+            normal[triangles[i, 0], :] += tri_normal[i, :]
+            normal[triangles[i, 1], :] += tri_normal[i, :]
+            normal[triangles[i, 2], :] += tri_normal[i, :]
+
+        mag = np.sum(normal ** 2, 1)
+        zero_ind = mag == 0
+        mag[zero_ind] = 1
         normal[zero_ind, 0] = np.ones((np.sum(zero_ind)))
-    
-        normal = normal/np.sqrt(mag[:,np.newaxis])
+
+        normal = normal / np.sqrt(mag[:, np.newaxis])
 
     return normal
 
