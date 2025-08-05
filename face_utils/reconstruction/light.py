@@ -25,8 +25,8 @@ def get_normal(vertices, triangles):
         normal: [nver, 3]
     '''
     try:
-        from menpo.shape import TriMesh
-        mesh=TriMesh(vertices.copy(), triangles.copy())
+        from pyvisita import TriMesh
+        mesh = TriMesh(vertices.copy(), triangles.copy())
         normal=mesh.vertex_normals()
         
     except:

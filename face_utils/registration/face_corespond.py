@@ -6,7 +6,7 @@ Created on 2025-03-24 18:50:58
 """
 import numpy as np
 from functools import lru_cache
-from menpo3d.correspond import non_rigid_icp
+from pyvisita import non_rigid_icp
 import open3d as o3d #http://www.open3d.org/docs/release/tutorial/Basic/mesh.html
 import scipy.io as sio
 #https://anaconda.org/conda-forge/suitesparse
