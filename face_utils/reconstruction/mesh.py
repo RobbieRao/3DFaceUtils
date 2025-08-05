@@ -11,16 +11,8 @@ from .visualize import plot_mlabfaceerror
 #from .fitting import fit_shaperror
 #from .render import get_point_weight
 
-from pyvisita import (
-    TriMesh,
-    PointCloud,
-    trimesh_to_vtk,
-    VTKClosestPointLocator,
-    Translation,
-    UniformScale,
-    AlignmentSimilarity,
-)
-from scipy import sparse  # ,linalg#,dok_matrix
+from menpo.shape import TriMesh,PointCloud
+from scipy import sparse#,linalg#,dok_matrix
 from scipy.sparse.linalg import inv
 import numpy as np
 import pandas as pd
@@ -32,8 +24,10 @@ from sklearn.neighbors import BallTree
 #from stl import mesh
 import trimesh
 import open3d as o3d #http://www.open3d.org/docs/release/tutorial/Basic/mesh.html
+from menpo3d.vtkutils import trimesh_to_vtk, VTKClosestPointLocator
 #from scipy.optimize import lsq_linear
 from scipy.optimize import minimize, check_grad, least_squares, nnls, lsq_linear
+from menpo.transform import Translation, UniformScale, AlignmentSimilarity
 
 def fit_shaperror(source,target,flag_Near_vertices=True):
     #lm_align = AlignmentSimilarity(source.landmarks[group],

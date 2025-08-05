@@ -21,17 +21,13 @@ from .mesh import generate_texture
 
 import matplotlib.pyplot as plt
 from matplotlib import cm#,colors
-from pyvisita import (
-    trimesh_to_vtk,
-    VTKClosestPointLocator,
-    Translation,
-    UniformScale,
-    AlignmentSimilarity,
-)
+from menpo3d.vtkutils import trimesh_to_vtk, VTKClosestPointLocator
 #from scipy.optimize import lsq_linear
 from scipy.linalg import block_diag
 from typing import NamedTuple
 from scipy.optimize import minimize, check_grad, least_squares, nnls, lsq_linear
+ 
+from menpo.transform import Translation, UniformScale, AlignmentSimilarity
 plt.rcParams["font.size"]=12 
 
 
