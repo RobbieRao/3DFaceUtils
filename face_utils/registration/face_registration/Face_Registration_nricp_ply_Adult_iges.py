@@ -8,13 +8,12 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import scipy.io as sio
-from menpo.shape import TriMesh,PointCloud
-from skimage import io 
+from pyvisita import TriMesh, PointCloud, read_mesh
+from skimage import io
 import open3d as o3d #http://www.open3d.org/docs/release/tutorial/Basic/mesh.html
 from scipy.spatial import Delaunay
 import os, fnmatch
 import glob
-import menpo3d.io.input.mesh as ia
 
 from face_utils.reconstruction.transform import angle2matrix, procrustes_alignment, P2sRt
 from face3d.morphable_model import MorphabelModel

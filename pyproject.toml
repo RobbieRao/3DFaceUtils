@@ -14,5 +14,6 @@ dependencies = [
     "opencv-python",
     "gradio",
     "scipy",
-    "scikit-learn"
+    "scikit-learn",
+    "pyvisita"
 ]

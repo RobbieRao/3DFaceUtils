@@ -16,7 +16,7 @@ import open3d as o3d #http://www.open3d.org/docs/release/tutorial/Basic/mesh.htm
 from skimage import io
 import scipy.io as sio
 import matplotlib.pyplot as plt
-from menpo.shape import TriMesh,PointCloud
+from pyvisita import TriMesh, PointCloud
 from scipy.spatial import Delaunay
 from pycpd import RigidRegistration
 

@@ -8,7 +8,7 @@ Created on 2025-04-04 17:48:22
 import numpy as np
 import matplotlib.pyplot as plt
 import scipy.io as sio
-from menpo.shape import TriMesh,PointCloud
+from pyvisita import TriMesh, PointCloud
 from scipy.spatial import Delaunay
 import os
 
