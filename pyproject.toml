@@ -6,5 +6,5 @@ build-backend = "setuptools.build_meta"
 name = "face-utils"
 version = "0.1.0"
 description = "Utilities for 3D face clustering, reconstruction, and registration"
-authors = [{name = "Peter Zhang"}]
+authors = [{name = "Robbie"}]
 requires-python = ">=3.8"

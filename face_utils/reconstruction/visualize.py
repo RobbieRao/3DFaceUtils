@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 """
-Created on Sat Apr  4 17:53:40 2020
+Created on Sat Apr  4 17:53:40 2025
 
-@author: Peter_Zhang
+@author: Robbie
 """
 #import os
 #os.environ["QT_API"] = "pyqt"
@@ -530,7 +530,7 @@ def plot_mlabfaceerror(vertex,dist_error,triangles,
                        fgcolor=(0, 0, 0), bgcolor=(1., 1., 1.),title=None,
                       representation='surface',out_file=None,figsize=(1000,1000)):
     
-    #print("Peter===================================================================================")                      
+    #print("Robbie===================================================================================")                      
     figure=mlab.figure(figure="Fittting Error Analysis",fgcolor=fgcolor, bgcolor=bgcolor,size=figsize)
     #camera_light3 = figure.scene.light_manager.lights[2]
     #camera_light3.intensity = 0.25

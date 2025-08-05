@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 """
-Created on Sat Apr  4 17:49:40 2020
+Created on Sat Apr  4 17:49:40 2025
 
-@author: Peter_Zhang
+@author: Robbie
 """
 #import tkinter
 import matplotlib
