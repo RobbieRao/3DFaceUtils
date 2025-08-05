@@ -23,23 +23,21 @@ main.py             # 多合一演示脚本
 
 ## 快速体验
 
-### 1. 聚类演示
-```bash
-python main.py cluster
-```
-脚本会生成一些示例点并使用模糊 C 均值进行聚类。
+启动一个包含教程的可视化网页界面：
 
-### 2. 图像特征点检测
 ```bash
-python main.py landmark path/to/image.jpg
+python main.py
 ```
-默认使用 dlib 作为检测器，可通过 `--method` 参数选择 `face_alignment`、`baidu` 或 `manual`。
 
-### 3. UV Map 生成
-```bash
-python main.py uvmap
-```
-随机生成一个网格并计算其 UV 映射，适合理解配准相关流程。
+浏览器中将打开多个标签页，覆盖以下功能：
+
+- **Fuzzy C-means**：二维数据的模糊聚类演示；
+- **Density Peaks**：基于密度峰值的簇中心选择；
+- **特征点检测**：上传人脸图片查看 2D 关键点；
+- **UV 映射**：随机顶点生成并展示对应的 UV 坐标；
+- **Delaunay**：对 UV 点集进行 Delaunay 三角剖分。
+
+每个页面都包含算法简介与交互式示例，便于理解与调试。
 
 ## 模块简介
 

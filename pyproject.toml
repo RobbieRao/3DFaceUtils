@@ -8,3 +8,11 @@ version = "0.1.0"
 description = "Utilities for 3D face clustering, reconstruction, and registration"
 authors = [{name = "Robbie"}]
 requires-python = ">=3.8"
+dependencies = [
+    "numpy",
+    "matplotlib",
+    "opencv-python",
+    "gradio",
+    "scipy",
+    "scikit-learn"
+]
