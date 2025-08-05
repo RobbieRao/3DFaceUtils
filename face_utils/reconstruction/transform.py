@@ -236,8 +236,6 @@ def procrustes_alignment(X, Y, scaling=True, reflection='best'):
     # transformation values
     tform = {'rotation': T, 'scale': b, 'translation': c}
     
-    # from menpo.shape import TriMesh,PointCloud
-    # from menpo.transform import Translation, UniformScale, AlignmentSimilarity
     # lm_align = AlignmentSimilarity(PointCloud(X),PointCloud(Y)).as_non_alignment()
     # Z = lm_align.apply(PointCloud(Y)).points  
     return Z, tform
@@ -245,8 +243,6 @@ def procrustes_alignment(X, Y, scaling=True, reflection='best'):
 
 def model_correction(S_vertices,T_vertices=None,landmark_idx=None,S_landmark=None,T_landmark=None,nosetip_idx=8192,
                      model_type="BFM",return_Mrotate=False):
-    # from menpo.shape import TriMesh, PointCloud
-    # from menpo.transform import  AlignmentSimilarity
 
     # T_landmark=PointCloud(T_landmark)
     # S_landmark=PointCloud(S_landmark)
