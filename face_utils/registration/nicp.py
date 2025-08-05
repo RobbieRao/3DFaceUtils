@@ -14,16 +14,10 @@ from contextlib import contextmanager
 import numpy as np
 import scipy.sparse as sp
 from io import UnsupportedOperation
-from pyvisita import (
-    TriMesh,
-    PointCloud,
-    Translation,
-    UniformScale,
-    AlignmentSimilarity,
-    ShapeModel,
-    trimesh_to_vtk,
-    VTKClosestPointLocator,
-)
+from menpo.shape import TriMesh, PointCloud
+from menpo.transform import Translation, UniformScale, AlignmentSimilarity
+from menpo3d.morphablemodel.shapemodel import ShapeModel
+from menpo3d.vtkutils import trimesh_to_vtk, VTKClosestPointLocator
 #https://anaconda.org/menpo/menpo3d
 
 @contextmanager

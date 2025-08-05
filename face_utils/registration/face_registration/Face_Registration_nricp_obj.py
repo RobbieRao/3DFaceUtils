@@ -11,7 +11,7 @@ import open3d as o3d #http://www.open3d.org/docs/release/tutorial/Basic/mesh.htm
 from skimage import io
 import scipy.io as sio
 import matplotlib.pyplot as plt
-from pyvisita import TriMesh, PointCloud
+from menpo.shape import TriMesh,PointCloud
 from scipy.spatial import Delaunay
 from face_utils.reconstruction.load import load_BFM
 from face_utils.reconstruction.visualize import (

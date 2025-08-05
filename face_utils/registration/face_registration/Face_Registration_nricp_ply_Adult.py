@@ -8,9 +8,10 @@ Created on 2025-04-04 17:48:22
 import numpy as np
 import matplotlib.pyplot as plt
 import scipy.io as sio
-from pyvisita import TriMesh, PointCloud, read_mesh
+from menpo.shape import TriMesh,PointCloud
 from scipy.spatial import Delaunay
 import pandas as pd
+import menpo3d.io.input.mesh as ia
 import os
 
 from face_utils.reconstruction.visualize import (
@@ -65,13 +66,13 @@ for idx in range(len(file_lists)):
     filenum=file_lists[idx][0:6]
     #filename='./Data/Children_head_Database/'+filenum+'.ply'
     
-    F_mesh = read_mesh(filePath1 + filenum + '.ply')  # placeholder reader
+    F_mesh=ia.ply_importer(filePath1+filenum+'.ply')#.points#read_ply(filePath1+i)
     F_vertices0=F_mesh.points
     F_triangles0=F_mesh.trilist
     #F_colors0=np.repeat([100,100,100],len(F_vertices0)).reshape(-1,3)/255
     #plot_mlabvertex(T_vertices0,T_colors0,T_triangles0)#,S_landmarks)
     
-    T_mesh = read_mesh(filePath2 + filenum + '.ply')  # placeholder reader
+    T_mesh=ia.ply_importer(filePath2+filenum+'.ply')#.points#read_ply(filePath1+i)
     T_vertices0=T_mesh.points
     T_triangles0=T_mesh.trilist
     T_colors0=np.repeat([100,100,100],len(T_vertices0)).reshape(-1,3)/255
