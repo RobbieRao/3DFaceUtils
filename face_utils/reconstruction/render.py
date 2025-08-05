@@ -62,7 +62,7 @@ def pointTriangleDistance(TRI, P):
     #
     # Author: Gwolyn Fischer
     # Release: 1.0
-    # Release date: 09/02/02
+    # Release date: 2002-09-02
     # Release: 1.1 Fixed Bug because of normalization
     # Release: 1.2 Fixed Bug because of typo in region 5 20101013
     # Release: 1.3 Fixed Bug because of typo in region 2 20101014
