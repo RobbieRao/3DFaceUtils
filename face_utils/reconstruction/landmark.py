@@ -125,13 +125,18 @@ def landmark2d_detect(img,method='dlib',landmark3d=None,flag_show=True,return_se
         # resize image
         img_cv = cv2.resize(img_cv, dim, interpolation = cv2.INTER_AREA)
         
-        cv2.namedWindow("image")
-        cv2.imshow("image", img_cv)
-        cv2.resizeWindow("image", width1, height1)
+        try:
+            cv2.namedWindow("image")
+            cv2.imshow("image", img_cv)
+            cv2.resizeWindow("image", width1, height1)
 
-        cv2.setMouseCallback("image", mouse_pixel)
-        cv2.waitKey(0)
-        cv2.destroyAllWindows()
+            cv2.setMouseCallback("image", mouse_pixel)
+            cv2.waitKey(0)
+            cv2.destroyAllWindows()
+        except cv2.error as e:
+            raise RuntimeError(
+                "OpenCV is not built with GUI support; manual landmark selection is unavailable."
+            ) from e
         
         df_pos=np.array(pixels).reshape(-1,2)
         df_pos[:,0]=df_pos[:,0]/width1*width0
