@@ -9,11 +9,18 @@ description = "Utilities for 3D face clustering, reconstruction, and registratio
 authors = [{name = "Robbie"}]
 requires-python = ">=3.8"
 dependencies = [
-    "numpy",
-    "matplotlib",
-    "opencv-python",
+    "baidu-aip",
+    "dlib",
+    "face-alignment",
     "gradio",
-    "scipy",
+    "matplotlib",
+    "numpy",
+    "opencv-python",
+    "pandas",
+    "pillow",
+    "pydantic",
+    "pyvista",
+    "scikit-image",
     "scikit-learn",
-    "pyvista"
+    "scipy"
 ]

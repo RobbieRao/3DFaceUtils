@@ -4,10 +4,10 @@ face-alignment
 gradio
 matplotlib
 numpy
-open3d
 opencv-python
 pandas
 pillow
+pydantic
 pyvista
 scikit-image
 scikit-learn

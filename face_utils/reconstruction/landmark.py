@@ -6,7 +6,7 @@ Created on 2025-04-04 17:49:40
 """
 #import tkinter
 import matplotlib
-#matplotlib.use('TkAgg')
+matplotlib.use("Agg")
 
 import cv2  #cv2.__version__
 import numpy as np
@@ -129,19 +129,18 @@ def landmark2d_detect(img,method='dlib',landmark3d=None,flag_show=True,return_se
             cv2.namedWindow("image")
             cv2.imshow("image", img_cv)
             cv2.resizeWindow("image", width1, height1)
-
             cv2.setMouseCallback("image", mouse_pixel)
             cv2.waitKey(0)
             cv2.destroyAllWindows()
-        except cv2.error as e:
+        except cv2.error as err:
             raise RuntimeError(
-                "OpenCV is not built with GUI support; manual landmark selection is unavailable."
-            ) from e
-        
+                "OpenCV GUI functions are not available. Install opencv-python with GUI support or use a display-capable environment"
+            ) from err
+
         df_pos=np.array(pixels).reshape(-1,2)
         df_pos[:,0]=df_pos[:,0]/width1*width0
         df_pos[:,1]=df_pos[:,1]/height1*height0
-        
+
         del pixels,img_cv
         
     plt_groups=face_groups
